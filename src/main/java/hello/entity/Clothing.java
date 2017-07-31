@@ -6,10 +6,6 @@ import javax.persistence.*;
 //@Table (name = "clothing")
 //@NamedQuery(name = "Clothing.findAll", query = "SELECT p FROM Clothing p")
 public class Clothing {
-//    @Id
-//    @GeneratedValue(strategy=GenerationType.IDENTITY)
-//    @Column(unique=true, nullable=false)
-    private int id;
 
 //    @Column(nullable=true)
     private int id_clothing;
@@ -18,14 +14,6 @@ public class Clothing {
     private String dress;
 
     public Clothing() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getId_clothing() {

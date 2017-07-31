@@ -5,8 +5,17 @@ public class Summary {
     private int id_weather;
     private int id_sex;
     private int id_dress;
+    private int id_tip;
 
     public Summary() {
+    }
+
+    public int getId_tip() {
+        return id_tip;
+    }
+
+    public void setId_tip(int id_tip) {
+        this.id_tip = id_tip;
     }
 
     public int getId_weather() {

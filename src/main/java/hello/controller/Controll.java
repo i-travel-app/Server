@@ -1,6 +1,7 @@
 package hello.controller;
 
 import hello.*;
+import hello.entity.Clothing;
 import hello.entity.Summary;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,16 +25,54 @@ public class Controll {
         ArrayList<String> list = new ArrayList<>();
         try {
             handler.connect();
-            list.addAll(handler.www(sd.getId_weather(), sd.getId_sex()));
+            list.addAll(handler.www(sd.getId_weather(), sd.getId_sex(), sd.getId_tip()));
         } catch (SQLException e) {
             System.out.println("Проблемы при работе с БД!");
             e.printStackTrace();
         } finally {
             handler.disconnect();
         }
-
         return list;
     }
+
+    @RequestMapping(value = "/s", method = RequestMethod.PUT)
+    //@ResponseBody
+    public String putMyData(@RequestBody ArrayList<Clothing> md) {
+        int res = 0;
+        try {
+            handler.connect();
+            for (Clothing a : md) {
+                res = handler.wwwinsert(a.getId_clothing(), a.getDress());
+                ++res;
+                System.out.println(a.getId_clothing());
+                System.out.println(a.getDress());
+                System.out.println(res);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            handler.disconnect();
+        }
+        return "Added " + res + " new entries";
+    }
+
+//    @RequestMapping(value = "/s", method = RequestMethod.PUT)
+//    //@ResponseBody
+//    public String putMyData(@RequestBody Clothing md) {
+//        int res = 0;
+//        try {
+//            handler.connect();
+//            res = handler.wwwinsert(md.getId_clothing(), md.getDress());
+//            System.out.println(md.getId_clothing());
+//            System.out.println(md.getDress());
+//            System.out.println(res);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }finally {
+//            handler.disconnect();
+//        }
+//        return "Added "+res+" new entries";
+//    }
 
 //@RestController
 //public class Controll {
@@ -135,11 +174,7 @@ public class Controll {
 //        return new MyDataObject(Calendar.getInstance(), "Это ответ метода GET!");
 //    }
 
-//    @RequestMapping(method = RequestMethod.PUT)
-//    @ResponseBody
-//    public MyDataObject putMyData(@RequestBody MyDataObject md) {
-//        return md;
-//    }
+
 //
 //    // этот метод будет методом POST отдавать объект MyDataObject
 //    @RequestMapping(value = "/as",  method = RequestMethod.POST)

@@ -25,11 +25,22 @@ public class SQLHandler {
         res = ps.executeQuery();
         return res.getInt(1);
     }
-    public static ArrayList<String> www(int a, int b) throws SQLException {
+
+    public static int wwwinsert(int id, String dress) throws SQLException {
+        int res = 0;
+        ps = connection.prepareStatement("INSERT INTO clothing (id_clothing, dress) VALUES (?, ?);");
+        ps.setInt(1, id);
+        ps.setString(2, dress);
+        res = ps.executeUpdate();
+        ps.close();
+        return res;
+    }
+    public static ArrayList<String> www(int a, int b, int c) throws SQLException {
         ArrayList<String> clothing = new ArrayList<>();
-        ps = connection.prepareStatement("select id_dress from summary where id_weather = ? and id_sex = ?;");
+        ps = connection.prepareStatement("select id_dress from summary where id_weather = ? and id_sex = ? and id_tip = ?;");
         ps.setInt(1, a);
         ps.setInt(2, b);
+        ps.setInt(3, c);
         res = ps.executeQuery();
         ps = connection.prepareStatement("select dress from clothing where id_clothing = ?;");
         ps.setString(1, res.getInt(1)+"");

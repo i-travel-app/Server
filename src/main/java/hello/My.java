@@ -16,7 +16,7 @@ public class My {
     public static void main(String[] args) throws SQLException {
         SQLHandler handler = new SQLHandler();
         handler.connect();
-        //System.out.println(handler.www("2", "1"));
+        System.out.println(handler.wwwinsert(6, "шапочка"));
         handler.disconnect();
 
 
