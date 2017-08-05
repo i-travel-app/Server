@@ -3,6 +3,9 @@ package hello.controller;
 import hello.*;
 import hello.entity.Clothing;
 import hello.entity.Summary;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.*;
@@ -18,6 +21,16 @@ public class Controll {
 //    @RequestMapping(path="/dress", method = RequestMethod.GET)
 //    public ResponseEntity<?> getAll(){
 //        return ResponseEntity.ok(clothingRepository.findAll());
+//    }
+
+//    @RequestMapping(value = "/")//запрос GET
+//    public ResponseEntity<Summary> get(HttpServletRequest ss){
+//        Summary as = new Summary();
+//        as.setId_weather(Integer.parseInt(ss.getParameter("id_weather")));
+//        as.setId_sex(Integer.parseInt(ss.getParameter("id_sex")));
+//        as.setId_tip(Integer.parseInt(ss.getParameter("id_tip")));
+//
+//        return new ResponseEntity<Summary>(as, HttpStatus.OK);
 //    }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
@@ -54,6 +67,26 @@ public class Controll {
             handler.disconnect();
         }
         return "Added " + res + " new entries";
+    }
+
+    @RequestMapping(value= "/d", method = RequestMethod.DELETE)
+    //@ResponseBody
+    public String deleteMyData(@RequestBody ArrayList<Clothing> md) {
+        int res = 0;
+        try {
+            handler.connect();
+            for (Clothing a : md) {
+                res = res + handler.delete(a.getDress());
+                //++res;
+                System.out.println(a.getDress());
+                System.out.println(res);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            handler.disconnect();
+        }
+        return "Delete " + res + " entries";
     }
 
 //    @RequestMapping(value = "/s", method = RequestMethod.PUT)

@@ -1,9 +1,7 @@
 package hello;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class My {
 //    public ArrayList<Integer> sut(int a){
@@ -14,12 +12,10 @@ public class My {
 //    }
 
     public static void main(String[] args) throws SQLException {
-        SQLHandler handler = new SQLHandler();
-        handler.connect();
-        System.out.println(handler.wwwinsert(6, "шапочка"));
-        handler.disconnect();
-
-
+//        SQLHandler handler = new SQLHandler();
+//        handler.connect();
+//        System.out.println(handler.wwwinsert(6, "шапочка"));
+//        handler.disconnect();
 
     }
 

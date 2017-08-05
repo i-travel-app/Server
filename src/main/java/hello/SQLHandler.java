@@ -35,6 +35,15 @@ public class SQLHandler {
         ps.close();
         return res;
     }
+    public static int delete(String dress) throws SQLException {
+        int res = 0;
+        ps = connection.prepareStatement("DELETE FROM clothing WHERE dress = ?;");
+        ps.setString(1, dress);
+        res = ps.executeUpdate();
+        ps.close();
+        return res;
+    }
+
     public static ArrayList<String> www(int a, int b, int c) throws SQLException {
         ArrayList<String> clothing = new ArrayList<>();
         ps = connection.prepareStatement("select id_dress from summary where id_weather = ? and id_sex = ? and id_tip = ?;");
