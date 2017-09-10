@@ -2,7 +2,7 @@
   <artifact type="jar" name="RESTandSPRING:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/RESTandSPRING_jar</output-path>
     <root id="archive" name="RESTandSPRING.jar">
-      <element id="module-output" name="RESTandSPRING" />
+      <element id="module-output" name="RestService" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.8.RELEASE/spring-context-4.3.8.RELEASE.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/1.5.3.RELEASE/spring-boot-autoconfigure-1.5.3.RELEASE.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar" path-in-jar="/" />
