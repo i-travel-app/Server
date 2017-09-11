@@ -6,16 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="33358d14-189d-4aa4-a0d5-c0aca0d8c820" name="Default" comment="Refactoring Classes">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RestService.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RESTandSPRING_jar/RESTandSPRING.jar" afterPath="$PROJECT_DIR$/out/artifacts/RESTandSPRING_jar/RESTandSPRING.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hello/SQLHandler.class" afterPath="$PROJECT_DIR$/target/classes/hello/SQLHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hello/controller/Controll.class" afterPath="$PROJECT_DIR$/target/classes/hello/controller/Controll.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hello/entity/Clothing.class" afterPath="$PROJECT_DIR$/target/classes/hello/entity/Clothing.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hello/Application.java" afterPath="$PROJECT_DIR$/src/main/java/hello/Application.java" />
-    </list>
+    <list default="true" id="33358d14-189d-4aa4-a0d5-c0aca0d8c820" name="Default" comment="Refactoring Classes" />
     <list id="fab6cfce-ba77-40f3-8ce6-1eb30a8df0c5" name="Rejected commit: Default" comment="Refactoring Classes" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
