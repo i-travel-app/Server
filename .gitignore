@@ -1,9 +1,0 @@
-.idea
-lib
-out
-target
-i-travel_test.db
-MyTest.db
-src/test/
-src/main/java/META-INF
-.gitignore
