@@ -1,4 +1,4 @@
-package hello.rest;
+package de.rest.entity;
 
 import javax.persistence.*;
 

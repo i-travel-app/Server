@@ -1,4 +1,4 @@
-package hello.rest;
+package de.rest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
