@@ -25,14 +25,20 @@ public class Controller {
     @Autowired
     PutRepository putRepository;
 
+    /**
+     * Выводим данные всех таблиц.
+     */
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public List<?> allPrint(){
+    public List<?> allPrint() {
         return clothingRepository.allPrint();
     }
 
+    /**
+     * Выводим данные по трем характеристикам.
+     */
     @RequestMapping(value = "/three", method = RequestMethod.GET)
-    public List<?> threeElement(int w, int s, int t){
-        System.out.println(w+" "+ s+" "+ t);
+    public List<?> threeElement(int w, int s, int t) {
+        System.out.println(w + " " + s + " " + t);
         return clothingRepository.threeElement(w, s, t);
     }
 
@@ -43,82 +49,28 @@ public class Controller {
 //        return sd.getId_sex();
 //    }
 
+    /**
+     * Добавляем данные в таблицу обработки.
+     */
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public Integer saveData(@RequestBody ArrayList<Put> md){
+    public Integer saveData(@RequestBody ArrayList<Put> md) {
         putRepository.save(md);
         return md.size();
     }
 
+    /**
+     * Выводит все данные из таблицы обработки.
+     */
     @RequestMapping(value = "/p", method = RequestMethod.GET)
-    public List<Put> printPutAll(){
+    public List<Put> printPutAll() {
         return putRepository.findAll();
     }
 
+    /**
+     * Удаляет данные из таблицы обработки.
+     */
     @RequestMapping(value = "/", method = RequestMethod.DELETE)
-    public void deletePut(@RequestBody ArrayList<Put> md){
+    public void deletePut(@RequestBody ArrayList<Put> md) {
         putRepository.delete(md);
     }
-
-
-//    /**
-//     * Получение данных по параметрам.
-//     */
-//    @RequestMapping(value = "/", method = RequestMethod.POST)
-//    public ArrayList<String> update(@RequestBody Summary sd) {
-//        ArrayList<String> list = new ArrayList<>();
-//        try {
-//            handler.connect();
-//            list.addAll(handler.requestData(sd.getId_weather(), sd.getId_sex(), sd.getId_tip()));
-//        } catch (SQLException e) {
-//            System.out.println("Проблемы при работе с БД!");
-//            e.printStackTrace();
-//        } finally {
-//            handler.disconnect();
-//        }
-//        return list;
-//    }
-//
-//    /**
-//     * Добавление данных.
-//     */
-//    @RequestMapping(value = "/s", method = RequestMethod.PUT)
-//    public String putMyData(@RequestBody ArrayList<Clothing> md) {
-//        int res = 0;
-//        try {
-//            handler.connect();
-//            for (Clothing a : md) {
-//                res = handler.insertData(a.getId_clothing(), a.getDress());
-//                ++res;
-//                System.out.println(a.getId_clothing());
-//                System.out.println(a.getDress());
-//                System.out.println(res);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } finally {
-//            handler.disconnect();
-//        }
-//        return "Added " + res + " new entries";
-//    }
-//
-//    /**
-//     * Удаление данных
-//     */
-//    @RequestMapping(value = "/d", method = RequestMethod.DELETE)
-//    public String deleteMyData(@RequestBody ArrayList<Clothing> md) {
-//        int res = 0;
-//        try {
-//            handler.connect();
-//            for (Clothing a : md) {
-//                res = res + handler.deleteData(a.getDress());
-//                System.out.println(a.getDress());
-//                System.out.println(res);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } finally {
-//            handler.disconnect();
-//        }
-//        return "Delete " + res + " entries";
-//    }
 }
