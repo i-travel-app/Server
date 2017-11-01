@@ -1,6 +1,7 @@
 package de.rest.controllers;
 
 
+import de.rest.entity.Haup;
 import de.rest.entity.Put;
 import de.rest.repositories.ClothingRepository;
 import de.rest.repositories.PutRepository;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +50,14 @@ public class Controller {
 //        System.out.println(sd.getId_weather()+" "+sd.getId_sex());
 //        return sd.getId_sex();
 //    }
+//String as = "77777";
+//    @RequestMapping(value = "/i", method = RequestMethod.POST)
+//    public List<Put> NeuOb(@RequestBody Put element){
+//
+//        putRepository.nueObjeckt(element.);
+//
+//        return putRepository.findAll();
+//    }
 
     /**
      * Добавляем данные в таблицу обработки.
@@ -72,5 +82,17 @@ public class Controller {
     @RequestMapping(value = "/", method = RequestMethod.DELETE)
     public void deletePut(@RequestBody ArrayList<Put> md) {
         putRepository.delete(md);
+    }
+
+    /**
+     * Получаем Json с погодой, обрабатыааем и отдаем.
+     */
+    @RequestMapping(value = "/api")
+    public Haup apiWeather(double lat, double lon) {
+        RestTemplate restTemplate = new RestTemplate();
+        Haup wea = restTemplate
+                .getForObject("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=metric&appid=e3bce0ec94e887a526266a26ffb690ce", Haup.class);
+
+        return wea;
     }
 }
